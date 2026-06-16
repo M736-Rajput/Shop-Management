@@ -17,20 +17,16 @@ def add_product():
     name = input("Enter product name: ")
     price = int(input("Enter price: "))
     stock = int(input("Enter stock quantity: "))
-
     products[name] = {"price": price, "stock": stock}
     print("Product added successfully!")
 
 def sell_product():
     name = input("Enter product name to sell: ")
-
     if name in products:
         qty = int(input("Enter quantity: "))
-
         if qty <= products[name]["stock"]:
             total = qty * products[name]["price"]
             products[name]["stock"] -= qty
-
             print("\n----- BILL -----")
             print("Product:", name)
             print("Quantity:", qty)
@@ -47,21 +43,15 @@ while True:
     print("2. Add Product")
     print("3. Sell Product")
     print("4. Exit")
-
     choice = input("Enter your choice: ")
-
     if choice == "1":
         show_products()
-
     elif choice == "2":
         add_product()
-
     elif choice == "3":
         sell_product()
-
     elif choice == "4":
         print("Thank you!")
         break
-
     else:
         print("Invalid choice!")
